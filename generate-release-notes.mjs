@@ -1,7 +1,9 @@
-const { Octokit } = require("@octokit/rest");
-const fs = require('fs');
-const path = require('path');
+// Import the Octokit module using ES Module syntax
+import { Octokit } from "@octokit/rest";
+import fs from 'fs';
+import path from 'path';
 
+// Initialize Octokit with authentication
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN,
 });
@@ -104,7 +106,7 @@ ${releaseNotes.map(note => `- ${note}`).join('\n')}
 Release Date: ${new Date().toISOString()}
 `;
 
-if (!fs.existsSync(releaseNotesDir)) {
+  if (!fs.existsSync(releaseNotesDir)) {
     fs.mkdirSync(releaseNotesDir);
   }
 

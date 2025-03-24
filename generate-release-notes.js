@@ -6,8 +6,8 @@ const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN,
 });
 
-const owner = 'your-github-username';
-const repo = 'your-repository-name';
+const owner = 'WriteMayur';
+const repo = 'docs-website';
 const developBranch = 'develop';
 const releaseNotesDir = 'release-notes';
 const releaseNotesFile = path.join(releaseNotesDir, 'release-notes.md');

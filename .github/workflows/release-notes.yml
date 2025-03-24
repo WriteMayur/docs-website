@@ -22,6 +22,6 @@ jobs:
         run: npm install
 
       - name: Generate Release Notes
-        run: node generate-release-notes.js
+        run: node generate-release-notes.mjs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

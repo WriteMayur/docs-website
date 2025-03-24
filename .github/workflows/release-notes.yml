@@ -1,0 +1,27 @@
+name: Generate Release Notes
+
+on:
+  schedule:
+    - cron: '0 20 * * 5' # Runs every Friday at 8 PM PST
+  workflow_dispatch: # Allows manual triggering of the workflow
+
+jobs:
+  generate-release-notes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Generate Release Notes
+        run: node generate-release-notes.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
